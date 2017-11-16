@@ -1,6 +1,8 @@
 //your variable declarations here
 Spaceship ship = new Spaceship();
 Stars[] space = new Stars[200];
+Asteroid add = new Asteroid();
+
 public void setup() 
 {
   //your code here
@@ -20,6 +22,9 @@ public void draw()
   }
   ship.show();
   ship.move();
+  add.show();
+  add.move();
+  
   //loop
 }
 public void keyPressed()
