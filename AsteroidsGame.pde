@@ -1,19 +1,20 @@
 //your variable declarations here
 Spaceship ship = new Spaceship();
 Stars[] space = new Stars[200];
-Asteroid[] add = new Asteroid[13];
-
+//Asteroid[] add = new Asteroid[13];//Change to arrayist for step one
+ArrayList<Asteroid> add = new ArrayList<Asteroid>();
 public void setup() 
 {
   //your code here
+   
   size(500, 500);
   for (int i = 0; i < space.length; i++)
   {
     space[i] = new Stars();
   }
-   for (int i = 0; i < add.length; i++)
+   for (int i = 0; i < 14; i++)
   {
-    add[i] = new Asteroid();
+    add.add(new Asteroid());
   }
 }
 public void draw() 
@@ -24,16 +25,18 @@ public void draw()
   {
     space[i].show();
   }
-  for (int i = 0; i<add.length; i++)
+  for (int i = 0; i<add.size(); i++)
   {
-    add[i].show();
-    add[i].move();
+    add.get(i).show();
+    add.get(i).move();
+    if(dist(ship.getX(), ship.getY(),add.get(i).getX(),add.get(i).getY())<20)
+      add.remove(i);
   }
   ship.show();
   ship.move();
   //add.show();
   //add.move();
-  
+  System.out.println(add.size());
   //loop
 }
 public void keyPressed()
